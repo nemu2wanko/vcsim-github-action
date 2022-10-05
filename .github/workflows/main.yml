@@ -1,0 +1,17 @@
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    name: Test
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Vcsim github action
+        uses: ./ # Uses an action in the root directory
+        with:
+          api-version: 7.0
+
+      - name: Show support methods
+        run: curl https://user:pass@172.17.0.2:8989/about

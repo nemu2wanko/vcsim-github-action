@@ -1,0 +1,17 @@
+# action.yml
+name: Vcsim
+description: Run vcsim container with options
+inputs:
+  api-version:
+    description: api-version
+outputs:
+  time: # id of output
+    description: The time we greeted you
+runs:
+  using: docker
+  image: vmware/vcsim:latest
+  args:
+    - -l
+    - 0.0.0.0:8989
+    - "&"
+    # - -apiversion ${{ inputs.api-version }}
